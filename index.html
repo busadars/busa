@@ -1303,35 +1303,35 @@ disqusShortname = "pikitemplates";
 </div>
 <div class="flex-section" id="mega-flex">
 <div class="paint-category container section" id="paint-category" name="Featured Category"><div class="widget Image" data-version="2" id="Image1">
-<a class="paint-title" href="/">
+<a class="paint-title facility-btn" data-facility="computer">
 <div class="paint-category-img">
 <img alt="Computer Lab" height="96" id="Image1_img" src="https://blogger.googleusercontent.com/img/a/AVvXsEh12Y1jMFMKThUnenvVtrudE2UkRMdC1WBEnh1vIyhZAfjX3Yk4C-2n6yrpmJJkU_tvmsuhEbRPEALlz9lvQtokMujw5txHeP0s5gbJFnwQi_9GYo7sD5yhxb3e3X8qMQ-R4wA1z5_TkB1JbG0_o_kpBHk6pGSX3nwcLaZitE2WYMeo6caQImSE1gg2Qw=s96" width="96">
 </div>
 <div class="paint-category-title"><h2>Computer Lab</h2></div>
 </a>
 </div><div class="widget Image" data-version="2" id="Image2">
-<a class="paint-title" href="/">
+<a class="paint-title facility-btn" data-facility="medical">
 <div class="paint-category-img">
 <img alt="Medical Baaandu" height="96" id="Image2_img" src="https://blogger.googleusercontent.com/img/a/AVvXsEhZKuOJ1oXuLBcgZi_o_n46sYClAVCZI6vPWlE6PmKT5ZGCxLYdzsC0LzS2KO5a0fBtvUZDo-O6kbGeBSu7FDFppEdYWHt8XiVUiE6rMah8a1l7oDv6cfHDrhslGjhyO_TADVMiYblrHymyHVLAzsHIs-8QkKNPkOtZBq_XZJNULyqvSeun3nth_QwD7w=s96" width="96">
 </div>
 <div class="paint-category-title"><h2>Medical Baaandu</h2></div>
 </a>
 </div><div class="widget Image" data-version="2" id="Image3">
-<a class="paint-title" href="/">
+<a class="paint-title facility-btn" data-facility="education">
 <div class="paint-category-img">
 <img alt="Education" height="96" id="Image3_img" src="https://blogger.googleusercontent.com/img/a/AVvXsEjvA06y6Ihb7f3JCvClhQ0uzJSOguGJVtDbyyM2J4d9jG_yHigfohNPpmsKS5S81UNSwxM9Q1m4_ER4OE41xK77PDYKJAG4ke4pSa2FxFyeT3isaKnlu1GK6DUnd9-IaHYFOJK859_znGRZLlxpAlcOES4_hg7x69-Kw9AyuY6GyhIawvMZ6TEImgH2nw=s96" width="96">
 </div>
 <div class="paint-category-title"><h2>Education</h2></div>
 </a>
 </div><div class="widget Image" data-version="2" id="Image4">
-<a class="paint-title" href="/">
+ <a class="paint-title facility-btn" data-facility="bayan">
 <div class="paint-category-img">
 <img alt="Chaya siddi" height="96" id="Image4_img" src="https://blogger.googleusercontent.com/img/a/AVvXsEh-u0bSsyZRJwFuEl2LCPCt8DhxzjLtyrsk84HjdAufg_5sHi-Y_NLp_KOpti-VndB9l5wi963fR2c-0Lji0G9Bpoi79grF2nbMzaBNe-_9Fch7CCOAuJtw59yRCCB2NTkq8YEH9OGBON-nybgchyTocMtY5ayMq0U2pbAgXPnQvRzBkbpMN5QJ-n22xw=s96" width="96">
 </div>
 <div class="paint-category-title"><h2>Chaya siddi</h2></div>
 </a>
 </div><div class="widget Image" data-version="2" id="Image5">
-<a class="paint-title" href="/">
+<a class="paint-title facility-btn" data-facility="library">
 <div class="paint-category-img">
 <img alt="Bug Removing From Master" height="96" id="Image5_img" src="https://blogger.googleusercontent.com/img/a/AVvXsEg-WxNHaSHHoQESx64l9WsyrJ0s_5iR6Z_UkjoLWgdOe9pdim2q5rXicRw-r2oRcbKvraYdVq2QYMojRxYh3tKifiVjRpEo42HvETDDSitVsXq0a18Vjp89fiBALL1oXYhz-DGVzHpCHUMzRL65awFj8aMfwJY5BdibTwOoEKOW2C2E33Nc4y6Z4gG8Ig=s96" width="96">
 </div>
@@ -1471,5 +1471,24 @@ _WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML33', 'footer-co
 _WidgetManager._RegisterWidget('_LinkListView', new _WidgetInfo('LinkList8', 'footer-checks-menu', document.getElementById('LinkList8'), {}, 'displayModeFull'));
 _WidgetManager._RegisterWidget('_ContactFormView', new _WidgetInfo('ContactForm1', 'hidden-widgets', document.getElementById('ContactForm1'), {'contactFormMessageSendingMsg': 'Sending...', 'contactFormMessageSentMsg': 'Your message has been sent.', 'contactFormMessageNotSentMsg': 'Message could not be sent. Please try again later.', 'contactFormInvalidEmailMsg': 'A valid email address is required.', 'contactFormEmptyMessageMsg': 'Message field cannot be empty.', 'title': 'Contact form', 'blogId': '4943468662618719978', 'contactFormNameMsg': 'Name', 'contactFormEmailMsg': 'Email', 'contactFormMessageMsg': 'Message', 'contactFormSendMsg': 'Send', 'contactFormToken': 'AOuZoY5hD3t7N9sxBSGKy_FjW7WNnk5iUQ:1773692514051', 'submitUrl': 'https://www.blogger.com/contact-form.do'}, 'displayModeFull'));
 </script>
+<script>
+document.querySelectorAll('.facility-btn').forEach(btn=>{
+btn.addEventListener('click',function(e){
+e.preventDefault();
 
+let f=this.dataset.facility;
+
+let text={
+computer:"Computer training and digital learning for students.",
+medical:"Medical assistance and health awareness for students.",
+education:"Islamic and academic education programs.",
+bayan:"Speech and bayan training for students.",
+library:"Books and references for Islamic studies.",
+masika:"Monthly magazine created by students."
+};
+
+alert(text[f]);
+});
+});
+</script>
 </body></html>
