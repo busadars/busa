@@ -1205,7 +1205,57 @@ span.bt-text{left:0;right:0;}
 .item .comment-bubble, .share-runs li.share-icon{display:none}
 .share-top {margin: 0;}
 }
+.facility-popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.45);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:9999;
+}
 
+.popup-content{
+background:#ffffff;
+padding:30px;
+border-radius:14px;
+width:90%;
+max-width:450px;
+text-align:center;
+box-shadow:0 12px 35px rgba(0,0,0,0.25);
+font-family:Poppins,sans-serif;
+position:relative;
+animation:popupFade 0.3s ease;
+}
+
+@keyframes popupFade{
+from{transform:scale(0.9);opacity:0;}
+to{transform:scale(1);opacity:1;}
+}
+
+.popup-content h3{
+font-size:22px;
+margin-bottom:12px;
+color:#222;
+}
+
+.popup-content p{
+font-size:15px;
+line-height:1.6;
+color:#555;
+}
+
+.close-popup{
+position:absolute;
+top:12px;
+right:18px;
+font-size:22px;
+cursor:pointer;
+color:#444;
+ }
 --></style>
 <!-- Global Variables -->
 <script defer="defer" type="text/javascript">
@@ -1303,7 +1353,7 @@ disqusShortname = "pikitemplates";
 </div>
 <div class="flex-section" id="mega-flex">
 <div class="paint-category container section" id="paint-category" name="Featured Category"><div class="widget Image" data-version="2" id="Image1">
-<a class="paint-title facility-btn" data-facility="computer">
+<a class="paint-title facility-btn" data-facility="quran">
 <div class="paint-category-img">
 <img alt="Computer Lab" height="96" id="Image1_img" src="https://blogger.googleusercontent.com/img/a/AVvXsEh12Y1jMFMKThUnenvVtrudE2UkRMdC1WBEnh1vIyhZAfjX3Yk4C-2n6yrpmJJkU_tvmsuhEbRPEALlz9lvQtokMujw5txHeP0s5gbJFnwQi_9GYo7sD5yhxb3e3X8qMQ-R4wA1z5_TkB1JbG0_o_kpBHk6pGSX3nwcLaZitE2WYMeo6caQImSE1gg2Qw=s96" width="96">
 </div>
@@ -1311,7 +1361,8 @@ disqusShortname = "pikitemplates";
 </a>
 </div><div class="widget Image" data-version="2" id="Image2">
 <a class="paint-title facility-btn" data-facility="medical">
-<div class="paint-category-img">
+<div <a class="paint-title facility-btn" data-facility="islamic">
+</a>
 <img alt="Medical Baaandu" height="96" id="Image2_img" src="https://blogger.googleusercontent.com/img/a/AVvXsEhZKuOJ1oXuLBcgZi_o_n46sYClAVCZI6vPWlE6PmKT5ZGCxLYdzsC0LzS2KO5a0fBtvUZDo-O6kbGeBSu7FDFppEdYWHt8XiVUiE6rMah8a1l7oDv6cfHDrhslGjhyO_TADVMiYblrHymyHVLAzsHIs-8QkKNPkOtZBq_XZJNULyqvSeun3nth_QwD7w=s96" width="96">
 </div>
 <div class="paint-category-title"><h2>Medical Baaandu</h2></div>
@@ -1424,6 +1475,13 @@ disqusShortname = "pikitemplates";
 </div>
 <div class="overlay"></div>
 <div class="backTop"></div>
+ <div id="facilityPopup" class="facility-popup">
+  <div class="popup-content">
+    <span class="close-popup">&times;</span>
+    <h3 id="popupTitle"></h3>
+    <p id="popupText"></p>
+  </div>
+ </div>
 <!--Piki Templates Hosted Plugins -->
 <script src="js/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript">var pikiMessages ={showMore:"Show more",noTitle:"No title",noResults:"No results found",}</script>
@@ -1472,23 +1530,67 @@ _WidgetManager._RegisterWidget('_LinkListView', new _WidgetInfo('LinkList8', 'fo
 _WidgetManager._RegisterWidget('_ContactFormView', new _WidgetInfo('ContactForm1', 'hidden-widgets', document.getElementById('ContactForm1'), {'contactFormMessageSendingMsg': 'Sending...', 'contactFormMessageSentMsg': 'Your message has been sent.', 'contactFormMessageNotSentMsg': 'Message could not be sent. Please try again later.', 'contactFormInvalidEmailMsg': 'A valid email address is required.', 'contactFormEmptyMessageMsg': 'Message field cannot be empty.', 'title': 'Contact form', 'blogId': '4943468662618719978', 'contactFormNameMsg': 'Name', 'contactFormEmailMsg': 'Email', 'contactFormMessageMsg': 'Message', 'contactFormSendMsg': 'Send', 'contactFormToken': 'AOuZoY5hD3t7N9sxBSGKy_FjW7WNnk5iUQ:1773692514051', 'submitUrl': 'https://www.blogger.com/contact-form.do'}, 'displayModeFull'));
 </script>
 <script>
-document.querySelectorAll('.facility-btn').forEach(btn=>{
-btn.addEventListener('click',function(e){
+
+const facilities = {
+
+quran:{
+title:"Darsul Qur'an",
+text:"Bayanul Uloom Suffa Dars gives special importance to the study of the Holy Qur'an. Students are trained in correct recitation with Tajweed, memorization and understanding of Qur'anic meanings. Through daily lessons and guidance from experienced teachers, students develop a strong spiritual connection with the Qur'an and learn to apply its teachings in their lives."
+},
+
+arabic:{
+title:"Arabic Learning",
+text:"Arabic language education is an essential part of the curriculum at Bayanul Uloom Suffa Dars. Students study Nahv (grammar), Sarf (morphology) and classical Arabic texts which help them understand Islamic books in their original language. This training improves their ability to read, write and understand Arabic effectively."
+},
+
+islamic:{
+title:"Islamic Studies",
+text:"The Dars provides comprehensive Islamic education covering subjects such as Fiqh, Aqeedah, Hadith and Islamic history. Students gain deeper knowledge of Islamic teachings and ethics. The aim of this program is to develop knowledgeable and responsible individuals who can guide society with strong Islamic values."
+},
+
+bayan:{
+title:"Bayan & Public Speaking Training",
+text:"Students are trained in the art of public speaking and delivering Islamic speeches (Bayan). Through regular practice sessions they learn how to prepare speeches, communicate ideas clearly and address audiences confidently. This training helps develop future scholars and speakers who spread beneficial knowledge in society."
+},
+
+library:{
+title:"Student Library",
+text:"Bayanul Uloom Suffa Dars provides a small but valuable library for students. The library contains Islamic books, Arabic literature and reference materials which help students expand their knowledge beyond classroom lessons. It encourages reading habits and research among students."
+},
+
+masika:{
+title:"Masika – Monthly Magazine",
+text:"Masika is the monthly magazine prepared by the students of Bayanul Uloom Suffa Dars. It includes articles, speeches, poems and reflections written by students. The magazine helps students develop writing skills and creativity while spreading useful knowledge within the community."
+}
+
+};
+
+
+document.querySelectorAll(".facility-btn").forEach(btn=>{
+btn.addEventListener("click",function(e){
 e.preventDefault();
 
 let f=this.dataset.facility;
 
-let text={
-computer:"Computer training and digital learning for students.",
-medical:"Medical assistance and health awareness for students.",
-education:"Islamic and academic education programs.",
-bayan:"Speech and bayan training for students.",
-library:"Books and references for Islamic studies.",
-masika:"Monthly magazine created by students."
+document.getElementById("popupTitle").innerText=facilities[f].title;
+document.getElementById("popupText").innerText=facilities[f].text;
+
+document.getElementById("facilityPopup").style.display="flex";
+
+});
+});
+
+
+document.querySelector(".close-popup").onclick=function(){
+document.getElementById("facilityPopup").style.display="none";
 };
 
-alert(text[f]);
-});
-});
+
+window.onclick=function(e){
+if(e.target.id==="facilityPopup"){
+document.getElementById("facilityPopup").style.display="none";
+}
+};
+
 </script>
 </body></html>
