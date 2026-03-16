@@ -1239,6 +1239,19 @@ font-weight:500;
 color:#333;
 margin:0;
 }
+html, body{
+height:100%;
+}
+
+body{
+display:flex;
+flex-direction:column;
+min-height:100vh;
+}
+
+#center-container{
+flex:1;
+}
 
 /* mobile fix */
 @media(max-width:480px){
@@ -1278,6 +1291,7 @@ grid-template-columns:repeat(2,1fr);
 gap:18px;
 padding:20px;
 }
+ 
 --></style>
 <!-- Global Variables -->
 <script defer="defer" type="text/javascript">
