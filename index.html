@@ -1257,6 +1257,27 @@ font-size:14px;
 }
 
 }
+.paint-title{
+background:#fff;
+border-radius:20px;
+padding:20px;
+border:1px solid #eee;
+box-shadow:0 6px 18px rgba(0,0,0,0.08);
+transition:0.25s;
+}
+
+.paint-title:active{
+background:#2f74d0;
+color:#fff;
+transform:scale(0.97);
+}
+
+.paint-category{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:18px;
+padding:20px;
+}
 --></style>
 <!-- Global Variables -->
 <script defer="defer" type="text/javascript">
@@ -1339,7 +1360,7 @@ disqusShortname = "pikitemplates";
 <div class="color-section container section" id="color-section" name="Header-Featured"><div class="widget Image" data-version="2" id="Image7">
 <div class="color-wrapper">
 <div class="flexi-title"><h3>BAYANUL ULOOM DARS KODINHI</h3></div>
-<span class="color-caption">Near Lulu Mall, Kozhikkode</span>
+<span class="color-caption">Kodinhi Sathyappali,Chemmad</span>
 </div>
 <div class="color-image"><img alt="BAYANUL ULOOM DARS KODINHI" src="https://blogger.googleusercontent.com/img/a/AVvXsEhb7VervfE0B070eBJBL9xHaz8j2ThN5wubxyW8Zhvn_7NZajAQTDDyjrS6XuEWa3vgsH3kX77j1NUb26b8QyL8q-KisJtTZB15SjhJEEMDJTVRwy2k9wTsLvyB9QOVgMJxbPEnkrSSgXx1wsrNbGB8aWvyFxA_cw6INj6xLqz8UZJM44h4dJZRmC6cDvc=s594"></div>
 </div></div>
@@ -1356,37 +1377,36 @@ disqusShortname = "pikitemplates";
 
 <div class="paint-category container section">
 
-<div class="facility-btn" data-facility="quran">
-<i class="fas fa-book-quran"></i>
-<h2>Darsul Qur'an</h2>
-</div>
+<a class="paint-title facility-btn" href="#" data-facility="quran">
+<div class="paint-category-img">📖</div>
+<div class="paint-category-title"><h2>Darsul Qur'an</h2></div>
+</a>
 
-<div class="facility-btn" data-facility="arabic">
-<i class="fas fa-language"></i>
-<h2>Arabic Learning</h2>
-</div>
+<a class="paint-title facility-btn" href="#" data-facility="arabic">
+<div class="paint-category-img">🔤</div>
+<div class="paint-category-title"><h2>Arabic Learning</h2></div>
+</a>
 
-<div class="facility-btn" data-facility="islamic">
-<i class="fas fa-mosque"></i>
-<h2>Islamic Studies</h2>
-</div>
+<a class="paint-title facility-btn" href="#" data-facility="islamic">
+<div class="paint-category-img">🕌</div>
+<div class="paint-category-title"><h2>Islamic Studies</h2></div>
+</a>
 
-<div class="facility-btn" data-facility="bayan">
-<i class="fas fa-microphone"></i>
-<h2>Bayan Training</h2>
-</div>
+<a class="paint-title facility-btn" href="#" data-facility="bayan">
+<div class="paint-category-img">🎤</div>
+<div class="paint-category-title"><h2>Bayan Training</h2></div>
+</a>
 
-<div class="facility-btn" data-facility="library">
-<i class="fas fa-book-open"></i>
-<h2>Student Library</h2>
-</div>
+<a class="paint-title facility-btn" href="#" data-facility="library">
+<div class="paint-category-img">📚</div>
+<div class="paint-category-title"><h2>Student Library</h2></div>
+</a>
 
-<div class="facility-btn" data-facility="masika">
-<i class="fas fa-newspaper"></i>
-<h2>Masika Magazine</h2>
-</div>
+<a class="paint-title facility-btn" href="#" data-facility="masika">
+<div class="paint-category-img">📰</div>
+<div class="paint-category-title"><h2>Masika Magazine</h2></div>
+</a>
 
-</div>
 </div>
 <!-- Main Wrapper -->
 <div class="main section" id="main" name="Main Recent Posts"><div class="widget Blog" data-version="2" id="Blog1">
@@ -1492,79 +1512,53 @@ function _0x255d(n,t){var e=_0x31c4();return(_0x255d=function(n,t){return e[n-=3
 <script type="text/javascript" src="js/432983155-widgets.js"></script>
 <script>
 
-const facilities = {
+const facilities={
 
 quran:{
 title:"Darsul Qur'an",
-text:"Bayanul Uloom Suffa Dars gives special importance to the study of the Holy Qur'an. Students learn Tajweed, memorization and understanding of Qur'anic meanings under experienced teachers."
+text:"Students learn Qur'an recitation with Tajweed and understanding of meanings."
 },
 
 arabic:{
 title:"Arabic Learning",
-text:"Students study Nahv, Sarf and classical Arabic texts which help them understand Islamic books in their original language."
+text:"Students study Nahv and Sarf to understand Arabic Islamic books."
 },
 
 islamic:{
 title:"Islamic Studies",
-text:"The Dars provides education in Fiqh, Aqeedah, Hadith and Islamic history to build strong Islamic knowledge and character."
+text:"Fiqh, Aqeedah, Hadith and Islamic history are taught."
 },
 
 bayan:{
 title:"Bayan Training",
-text:"Students receive training in public speaking and Islamic speech delivery to develop confident speakers."
+text:"Students are trained to deliver Islamic speeches."
 },
 
 library:{
 title:"Student Library",
-text:"The Dars library contains Islamic books and references helping students increase knowledge beyond classroom learning."
+text:"Library contains useful Islamic books for students."
 },
 
 masika:{
 title:"Masika Magazine",
-text:"Masika is the monthly magazine of Bayanul Uloom Suffa Dars where students publish articles, speeches and poems."
+text:"Monthly student magazine with articles and speeches."
 }
 
 };
 
-
-const popup=document.getElementById("facilityPopup");
-
 document.querySelectorAll(".facility-btn").forEach(btn=>{
-btn.onclick=function(){
+btn.onclick=function(e){
+
+e.preventDefault();
 
 let f=this.dataset.facility;
 
-document.getElementById("popupTitle").innerText=facilities[f].title;
-document.getElementById("popupText").innerText=facilities[f].text;
-
-popup.style.display="flex";
-
-setTimeout(()=>{
-popup.classList.add("show");
-},10);
+alert(facilities[f].title+"\n\n"+facilities[f].text);
 
 };
 });
 
-
-document.querySelector(".close-popup").onclick=function(){
-popup.classList.remove("show");
-
-setTimeout(()=>{
-popup.style.display="none";
-},300);
-};
-
-
-window.onclick=function(e){
-if(e.target==popup){
-popup.classList.remove("show");
-
-setTimeout(()=>{
-popup.style.display="none";
-},300);
-}
-};
+</script>
 
 </script>
 </body></html>
