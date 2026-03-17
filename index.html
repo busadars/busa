@@ -1285,7 +1285,66 @@ min-height: calc(100vh - 300px);
 #footer-wrapper{
 margin-top: auto;
  }
- 
+ .admission-banner{
+text-align:center;
+background:linear-gradient(135deg,#1e3c72,#2a5298);
+color:#fff;
+padding:40px 20px;
+border-radius:18px;
+margin:30px auto;
+max-width:700px;
+box-shadow:0 12px 30px rgba(0,0,0,0.2);
+}
+
+.admission-banner h2{
+font-size:28px;
+margin-bottom:10px;
+}
+
+.admission-banner p{
+font-size:16px;
+opacity:0.9;
+margin-bottom:25px;
+}
+
+.admission-buttons{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.apply-btn{
+background:#28a745;
+color:#fff;
+padding:14px 28px;
+border-radius:10px;
+font-size:16px;
+font-weight:600;
+text-decoration:none;
+transition:0.3s;
+}
+
+.inquiry-btn{
+background:#ffffff;
+color:#1e3c72;
+padding:14px 28px;
+border-radius:10px;
+font-size:16px;
+font-weight:600;
+text-decoration:none;
+transition:0.3s;
+}
+
+.apply-btn:hover{
+background:#218838;
+transform:translateY(-2px);
+}
+
+.inquiry-btn:hover{
+background:#f1f1f1;
+transform:translateY(-2px);
+}
 --></style>
 <!-- Global Variables -->
 <script defer="defer" type="text/javascript">
@@ -1382,7 +1441,15 @@ disqusShortname = "pikitemplates";
 </div>
 </div>
 <div class="flex-section" id="mega-flex">
+<div class="admission-banner">
+  <h2>Admissions Open</h2>
+  <p>Bayanul Uloom Suffa Dars – Academic Year 2026-27</p>
 
+  <div class="admission-buttons">
+    <a href="https://forms.gle/YOURFORM" class="apply-btn">Apply Now</a>
+    <a href="https://wa.me/91XXXXXXXXXX" class="inquiry-btn">Inquiry</a>
+  </div>
+</div>
 <div class="paint-category container section">
 
 <a class="paint-title facility-btn" href="#" data-facility="quran">
