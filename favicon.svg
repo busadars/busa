@@ -1,77 +1,84 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <defs>
-    <!-- Deep Premium Background (Rich Black/Green) -->
-    <radialGradient id="bgGrad" cx="50%" cy="50%" r="75%">
-      <stop offset="0%" stop-color="#121e17" />
-      <stop offset="100%" stop-color="#040705" />
-    </radialGradient>
-
-    <!-- Mosque Dome Gradient (Dars Emerald) -->
-    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#3b9c65" />
-      <stop offset="100%" stop-color="#1a5035" />
+    <!-- Deep Premium Dark Slate Background -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#020617" />
     </linearGradient>
 
-    <!-- Open Book Gradient (Dars Gold) -->
-    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#f5d68d" />
-      <stop offset="50%" stop-color="#cca15f" />
-      <stop offset="100%" stop-color="#9e7330" />
+    <!-- 3D Lighting for Cylinder Bodies -->
+    <linearGradient id="body1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#047857" />
+      <stop offset="15%" stop-color="#6ee7b7" />
+      <stop offset="100%" stop-color="#064e3b" />
+    </linearGradient>
+    <linearGradient id="body2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#064e3b" />
+      <stop offset="15%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#022c22" />
+    </linearGradient>
+    <linearGradient id="body3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#022c22" />
+      <stop offset="15%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#020617" />
     </linearGradient>
 
-    <!-- Premium App Shadows -->
-    <filter id="shadowHeavy" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000000" flood-opacity="0.6"/>
+    <!-- Vibrant Gradients for Top Ellipses -->
+    <linearGradient id="top1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a7f3d0" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <linearGradient id="top2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6ee7b7" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="top3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+
+    <!-- Premium Drop Shadows -->
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="24" stdDeviation="20" flood-color="#000000" flood-opacity="0.45" />
     </filter>
-    <filter id="shadowGold" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#cca15f" flood-opacity="0.2"/>
-      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.5"/>
+    
+    <filter id="arrowShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="4" flood-color="#047857" flood-opacity="0.6" />
+    </filter>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="40" />
     </filter>
   </defs>
 
   <!-- Base App Background (Squircle) -->
-  <rect width="512" height="512" rx="120" fill="url(#bgGrad)" />
-  
-  <!-- Faint Inner Gloss Border -->
-  <rect x="2" y="2" width="508" height="508" rx="118" fill="none" stroke="#3b9c65" stroke-width="3" opacity="0.2" />
+  <rect width="512" height="512" rx="115" fill="url(#bgGrad)" />
+  <rect x="2" y="2" width="508" height="508" rx="113" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.08" />
 
-  <g transform="translate(0, -8)">
-    
-    <!-- ================= MOSQUE DOMES ================= -->
-    <g filter="url(#shadowHeavy)">
-      <!-- Center Main Dome -->
-      <path d="M 256 70 C 320 140, 350 180, 350 270 V 330 H 162 V 270 C 162 180, 192 140, 256 70 Z" fill="url(#greenGrad)"/>
-      
-      <!-- Left Minaret/Dome -->
-      <path d="M 110 170 C 130 200, 140 220, 140 260 V 330 H 80 V 260 C 80 220, 90 200, 110 170 Z" fill="url(#greenGrad)"/>
-      
-      <!-- Right Minaret/Dome -->
-      <path d="M 402 170 C 382 200, 372 220, 372 260 V 330 H 432 V 260 C 432 220, 422 200, 402 170 Z" fill="url(#greenGrad)"/>
-    </g>
+  <!-- Abstract Back Glow -->
+  <circle cx="256" cy="256" r="140" fill="#34d399" filter="url(#glow)" opacity="0.15" />
 
-    <!-- ================= MOSQUE ARCH CUTOUTS ================= -->
-    <g fill="#0c130e">
-      <!-- Center Arch -->
-      <path d="M 226 335 V 250 C 226 230, 246 200, 256 190 C 266 200, 286 230, 286 250 V 335 Z" />
-      <!-- Left Arch -->
-      <path d="M 174 335 V 270 C 174 250, 184 235, 194 225 C 204 235, 214 250, 214 270 V 335 Z" />
-      <!-- Right Arch -->
-      <path d="M 298 335 V 270 C 298 250, 308 235, 318 225 C 328 235, 338 250, 338 270 V 335 Z" />
-    </g>
-
-    <!-- ================= BOTTOM GREEN SWOOP ================= -->
-    <!-- Represents the supporting leaves/base of the logo -->
-    <path d="M 50 340 C 100 410, 180 460, 256 470 C 332 460, 412 410, 462 340 C 410 410, 330 440, 256 450 C 182 440, 102 410, 50 340 Z" fill="url(#greenGrad)" filter="url(#shadowHeavy)" />
-
-    <!-- ================= OPEN BOOK (GOLD) ================= -->
-    <g filter="url(#shadowGold)">
-      <!-- Solid Gold Base of the Book -->
-      <path d="M 70 330 L 256 380 L 442 330 C 400 390, 330 420, 256 440 C 182 420, 112 390, 70 330 Z" fill="url(#goldGrad)" />
-      
-      <!-- Inner Dark Cutouts to form the Book Pages -->
-      <path d="M 110 345 L 246 382 V 420 C 180 405, 130 380, 110 345 Z" fill="#0c130e"/>
-      <path d="M 402 345 L 266 382 V 420 C 332 405, 382 380, 402 345 Z" fill="#0c130e"/>
-    </g>
-
+  <!-- ================= BOTTOM COIN (Layer 3) ================= -->
+  <g filter="url(#shadow)">
+    <path d="M 126 314 v 45 a 130 65 0 0 0 260 0 v -45 z" fill="url(#body3)" />
+    <ellipse cx="256" cy="314" rx="130" ry="65" fill="url(#top3)" stroke="#34d399" stroke-width="1.5" stroke-opacity="0.4" />
   </g>
+
+  <!-- ================= MIDDLE COIN (Layer 2) ================= -->
+  <g filter="url(#shadow)">
+    <path d="M 126 234 v 45 a 130 65 0 0 0 260 0 v -45 z" fill="url(#body2)" />
+    <ellipse cx="256" cy="234" rx="130" ry="65" fill="url(#top2)" stroke="#6ee7b7" stroke-width="1.5" stroke-opacity="0.5" />
+  </g>
+
+  <!-- ================= TOP COIN (Layer 1) ================= -->
+  <g filter="url(#shadow)">
+    <path d="M 126 154 v 45 a 130 65 0 0 0 260 0 v -45 z" fill="url(#body1)" />
+    <ellipse cx="256" cy="154" rx="130" ry="65" fill="url(#top1)" stroke="#ffffff" stroke-width="2.5" stroke-opacity="0.8" />
+    
+    <!-- 3D Isometric Growth Arrow Embedded on Top Coin -->
+    <g transform="translate(256, 154) scale(1, 0.5) rotate(-45)" filter="url(#arrowShadow)">
+      <path d="M -35 35 L 35 -35 M 5 -35 L 35 -35 L 35 -5" fill="none" stroke="#ffffff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+  </g>
+
 </svg>
